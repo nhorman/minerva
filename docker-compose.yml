@@ -1,0 +1,24 @@
+volumes:
+  minerva-certs:
+
+services:
+  tlsfuzzer:
+    build: ./tlsfuzzer/
+    container_name: tlsfuzzer 
+    network_mode: host
+    privlidged: true
+    cap_add:
+      - CAP_NET_RAW
+      - CAP_NET_ADMIN
+    volumes:
+      - minerva-certs:/certs
+
+  openssl:
+    build: ./openssl/
+    container_name: openssl 
+    network_mode: host
+    privlidged: true
+    volumes:
+      - minerva-certs:/certs
+
+ 
