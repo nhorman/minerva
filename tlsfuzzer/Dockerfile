@@ -30,7 +30,7 @@ RUN patch -p1 --merge < ./ecdsa_key_type.patch
 RUN patch -p1 --merge < ./fix_bit_time_analysis.patch
 
 COPY ./run_minerva.sh .
-RUN cmod +x ./run_minerva.sh
+RUN chmod +x ./run_minerva.sh
 
 
 # Set the default command to show usage instruction
